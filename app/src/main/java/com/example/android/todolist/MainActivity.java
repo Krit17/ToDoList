@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity  {
         else if(id==R.id.about){
             Intent intent=new Intent();
             intent.setAction(Intent.ACTION_VIEW);
-            String url="http://codingninjas.in";
+                        String url="http://codingninjas.in";
             intent.setData(Uri.parse(url));
             startActivity(intent);
         }
