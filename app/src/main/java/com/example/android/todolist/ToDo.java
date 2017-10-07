@@ -11,16 +11,39 @@ import static android.R.attr.id;
 public class ToDo implements Serializable {
     private String Title;
     private String Task;
+    private String Category;
+    private long time;
 
     private int id;
-    public ToDo(String Title,String Task){
+    public ToDo(String Title,String Task,long time){
         this.Title=Title;
         this.Task=Task;
+        this.time=time;
     }
-    public ToDo(String Title,String Task,int id){
+
+    public String getCategory() {
+        return Category;
+    }
+
+    public void setCategory(String category) {
+        Category = category;
+    }
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    public ToDo(String Title, String Task, int id, long time, String category){
         this.Title=Title;
         this.Task=Task;
         this.id=id;
+        this.time=time;
+        this.Category=category;
+
     }
     public int getId() {
         return id;

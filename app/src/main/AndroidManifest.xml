@@ -27,7 +27,16 @@
         </activity>
         <activity android:name=".DetailedActivity" />
         <activity android:name=".CreateActivity" />
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="true"
+            android:exported="true">
 
+            <intent-filter>
+                <action android:name="my_action"/>
+            </intent-filter>
+
+        </receiver>
 
         <receiver
             android:name=".CustomBroadcastReceiver"

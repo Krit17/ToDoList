@@ -69,6 +69,7 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:hint="Date"
+            android:focusable="false"
             android:id="@+id/date"/>
     </LinearLayout>
     <LinearLayout
@@ -86,6 +87,7 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:hint="Time"
+            android:focusable="false"
             android:id="@+id/time"/>
     </LinearLayout>
     <Button

@@ -49,6 +49,7 @@ public class CustomAdapter extends ArrayAdapter<ToDo> {
             viewHolder.title=(TextView)convertView.findViewById(R.id.Title);
             viewHolder.task=(TextView)convertView.findViewById(R.id.activity);
             Button b=(Button)convertView.findViewById(R.id.Submit);
+            b.setFocusable(false);
             viewHolder.button=b;
             convertView.setTag(viewHolder);
         }

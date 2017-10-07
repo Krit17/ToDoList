@@ -97,9 +97,9 @@ public class MainActivity extends AppCompatActivity  {
                 intent.putExtra(KEY_TODO, todo);
                 intent.putExtra(KEY_POSITION, i);
                 startActivityForResult(intent, SAVE_DETAIL);
-
-                //todo=(String) adapterView.getAdapter().getItem(i);
-                //Toast.makeText(MainActivity.this,todo,Toast.LENGTH_SHORT).show();
+                 String val=todo.getTask();
+               // String val=(String) adapterView.getAdapter().getItem(i);
+                Toast.makeText(MainActivity.this,val,Toast.LENGTH_SHORT).show();
             }
 
 
