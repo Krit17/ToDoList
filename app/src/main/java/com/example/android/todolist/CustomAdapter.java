@@ -24,6 +24,7 @@ import static com.example.android.todolist.R.id.activity;
 
 public class CustomAdapter extends ArrayAdapter<ToDo> {
     Context mcontext;
+    ViewHolder viewHolder;
     ArrayList<ToDo> mitem;
      CallBackAdapter mcallback;
     public CustomAdapter(@NonNull Context context, ArrayList<ToDo> todolist, CallBackAdapter callBackAdapter) {
@@ -42,7 +43,7 @@ public class CustomAdapter extends ArrayAdapter<ToDo> {
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        ViewHolder viewHolder;
+
         if(convertView==null) {
             convertView = LayoutInflater.from(mcontext).inflate(R.layout.detail_row_layout, null);
             viewHolder=new ViewHolder();
@@ -59,6 +60,7 @@ public class CustomAdapter extends ArrayAdapter<ToDo> {
         viewHolder.button.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
+                viewHolder.button.setFocusable(true);
                 if(mcallback!=null){
                     mcallback.DeleteTodo(position,view);
                 }

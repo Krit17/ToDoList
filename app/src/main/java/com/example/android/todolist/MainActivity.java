@@ -80,8 +80,8 @@ public class MainActivity extends AppCompatActivity  {
                     ToDo todo=todolist.get(position);
                     int id=todo.getId();
                     ToDoOpenHelper openHelper = ToDoOpenHelper.getInstance(getApplicationContext());
-                    SQLiteDatabase db = openHelper.getWritableDatabase();
-                    db.delete(Contract.TODO_TABLE, Contract.TODO_ID + " = ? ", new String[]{id + ""});
+                 SQLiteDatabase db = openHelper.getWritableDatabase();
+                    db.delete(Contract.TODO_TABLE, Contract.TODO_ID + " =  "+(id+1) , null);
                     todolist.remove(position);
                     adapter.notifyDataSetChanged();
 
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity  {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    //@Override
+//    @Override
 //    public void DeleteTodo(View view,final int position) {
 //        AlertDialog.Builder builder=new AlertDialog.Builder(this);
 //        builder.setTitle("Delete ToDo");
@@ -261,6 +261,8 @@ public class MainActivity extends AppCompatActivity  {
         super.onDestroy();
         Log.d("LifeCycle","Destroy");
     }
+
+
 }
 
 
