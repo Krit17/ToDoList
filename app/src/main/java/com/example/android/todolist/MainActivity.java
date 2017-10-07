@@ -27,6 +27,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Set;
 
+import static android.R.attr.id;
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 import static com.example.android.todolist.Constant.KEY_ID;
 import static com.example.android.todolist.Constant.KEY_POSITION;
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity  {
             int id=cursor.getInt(cursor.getColumnIndex(Contract.TODO_ID));
             String title=cursor.getString(cursor.getColumnIndex(Contract.TODO_TITLE));
             String activity=cursor.getString(cursor.getColumnIndex(Contract.TODO_ACTIVITY));
-            ToDo todo=new ToDo(title,activity,id);
+            ToDo todo=new ToDo(title,activity,id,null,0);
             todolist.add(todo);
 
         }
@@ -78,10 +79,10 @@ public class MainActivity extends AppCompatActivity  {
 
 
                     ToDo todo=todolist.get(position);
-                    int id=todo.getId();
+                    long id=todo.getId();
                     ToDoOpenHelper openHelper = ToDoOpenHelper.getInstance(getApplicationContext());
                  SQLiteDatabase db = openHelper.getWritableDatabase();
-                    db.delete(Contract.TODO_TABLE, Contract.TODO_ID + " =  "+(id+1) , null);
+                    db.delete(Contract.TODO_TABLE, Contract.TODO_ID + " = ? ", new String[]{id + ""});
                     todolist.remove(position);
                     adapter.notifyDataSetChanged();
 
@@ -192,7 +193,7 @@ public class MainActivity extends AppCompatActivity  {
             if(cursor.moveToFirst()){
                 String title=cursor.getString(cursor.getColumnIndex(Contract.TODO_TITLE));
                 String activity=cursor.getString(cursor.getColumnIndex(Contract.TODO_ACTIVITY));
-                ToDo todo=new ToDo(title,activity,(int)id);
+                ToDo todo=new ToDo(title,activity,id,null,0);
                 todolist.add(todo);
 
             }

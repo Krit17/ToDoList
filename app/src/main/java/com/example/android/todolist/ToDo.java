@@ -13,12 +13,13 @@ public class ToDo implements Serializable {
     private String Task;
     private String Category;
     private long time;
-
-    private int id;
-    public ToDo(String Title,String Task,long time){
+    private long id;
+    public ToDo(String Title,String Task,long id,String category,long time){
         this.Title=Title;
         this.Task=Task;
         this.time=time;
+        this.id=id;
+        this.Category=category;
     }
 
     public String getCategory() {
@@ -37,15 +38,8 @@ public class ToDo implements Serializable {
         this.time = time;
     }
 
-    public ToDo(String Title, String Task, int id, long time, String category){
-        this.Title=Title;
-        this.Task=Task;
-        this.id=id;
-        this.time=time;
-        this.Category=category;
 
-    }
-    public int getId() {
+    public long getId() {
         return id;
     }
 

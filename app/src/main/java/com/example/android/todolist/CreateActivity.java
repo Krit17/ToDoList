@@ -106,7 +106,7 @@ public class CreateActivity extends AppCompatActivity {
         contentValues.put(Contract.TODO_CAT, category);
         contentValues.put(Contract.TODO_DATEANDTIME, millis);
         long id = db.insert(Contract.TODO_TABLE, null, contentValues);
-        // ToDo todo=new ToDo(title,activity);
+        ToDo toDo=new ToDo(title,activity,id,category,millis);
         Intent intent = new Intent();
         intent.putExtra(Constant.KEY_ID, id);
         // intent.putExtra(KEY_TODO,todo);
